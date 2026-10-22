@@ -1,0 +1,319 @@
+
+/* ================================
+   DINO KING - LEADERBOARD
+================================ */
+
+.leaderboard {
+  width: 100%;
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 32px;
+  background: linear-gradient(145deg, #101a15, #0a100d);
+  border: 1px solid rgba(74, 222, 128, 0.18);
+  border-radius: 22px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+  color: #f3f7f4;
+  box-sizing: border-box;
+}
+
+.leaderboard-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.section-tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #4ade80;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.leaderboard-heading h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+  font-size: clamp(23px, 4vw, 32px);
+  font-weight: 800;
+}
+
+.leaderboard-heading h2 svg {
+  color: #facc15;
+  flex-shrink: 0;
+}
+
+.leaderboard-heading p {
+  margin: 0;
+  color: #9baaa0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Refresh button */
+
+.refresh-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 12px;
+  background: #17251b;
+  color: #4ade80;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.refresh-btn:hover {
+  background: #24402c;
+  transform: rotate(15deg);
+}
+
+.refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Player list */
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.leaderboard-player {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 17px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 15px;
+  background: #141f18;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.leaderboard-player:hover {
+  border-color: rgba(74, 222, 128, 0.35);
+  background: #19291e;
+  transform: translateY(-2px);
+}
+
+/* Rank number */
+
+.rank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #202c24;
+  color: #b6c5ba;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.rank-1 {
+  background: rgba(250, 204, 21, 0.14);
+  color: #facc15;
+  border: 1px solid rgba(250, 204, 21, 0.3);
+}
+
+.rank-2 {
+  background: rgba(203, 213, 225, 0.12);
+  color: #cbd5e1;
+}
+
+.rank-3 {
+  background: rgba(217, 119, 6, 0.13);
+  color: #fbbf24;
+}
+
+/* Dinosaur avatar */
+
+.champion-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: #243b29;
+  font-size: 25px;
+}
+
+/* Player details */
+
+.champion-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.champion-info strong {
+  overflow: hidden;
+  color: #f3f7f4;
+  font-size: 15px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.champion-info span {
+  color: #91a397;
+  font-size: 12px;
+}
+
+/* Score */
+
+.champion-score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.champion-score strong {
+  color: #4ade80;
+  font-size: 21px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.champion-score span {
+  color: #809187;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+/* Loading, empty and error messages */
+
+.leaderboard-status {
+  padding: 28px 18px;
+  border: 1px dashed rgba(74, 222, 128, 0.2);
+  border-radius: 14px;
+  color: #a6b6aa;
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.leaderboard-status button {
+  margin-top: 10px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 9px;
+  background: #22c55e;
+  color: #07130a;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.leaderboard-status button:hover {
+  background: #4ade80;
+}
+
+/* Mobile responsive design */
+
+@media (max-width: 600px) {
+  .leaderboard {
+    width: calc(100% - 24px);
+    margin: 35px auto;
+    padding: 20px 14px;
+    border-radius: 17px;
+  }
+
+  .leaderboard-heading {
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .leaderboard-heading h2 {
+    gap: 7px;
+  }
+
+  .leaderboard-heading p {
+    font-size: 12px;
+  }
+
+  .refresh-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .leaderboard-player {
+    gap: 9px;
+    padding: 13px 10px;
+    border-radius: 12px;
+  }
+
+  .rank {
+    width: 29px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .champion-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    font-size: 21px;
+  }
+
+  .champion-info strong {
+    font-size: 13px;
+  }
+
+  .champion-info span {
+    font-size: 11px;
+  }
+
+  .champion-score strong {
+    font-size: 17px;
+  }
+
+  .champion-score span {
+    font-size: 8px;
+    letter-spacing: 0.7px;
+  }
+}
+
+@media (max-width: 360px) {
+  .leaderboard {
+    padding: 16px 10px;
+  }
+
+  .leaderboard-player {
+    gap: 7px;
+    padding: 11px 7px;
+  }
+
+  .champion-avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .rank {
+    width: 25px;
+  }
+}
