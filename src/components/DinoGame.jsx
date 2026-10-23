@@ -1,9 +1,12 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, Heart, Coins, Trophy, RotateCcw } from "lucide-react";
+import { io } from "socket.io-client";
+
+const socket = io(import.meta.env.VITE_API_URL);
 import "./DinoGame.css";
 
-const API_URL = "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL;
 const WIDTH = 900;
 const HEIGHT = 360;
 const GROUND = 300;
